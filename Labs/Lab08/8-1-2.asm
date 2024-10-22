@@ -4,8 +4,8 @@ mov r2, #blank
 mov r3, #askNumber
 
 // Procedure
-ldr r0, .InputNum
-str r0, .WriteUnsignedNum
+ldr r4, .InputNum
+str r4, .WriteUnsignedNum
 str r1, .WriteString
 str r2, .WriteString
 str r3, .WriteString

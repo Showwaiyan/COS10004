@@ -1,3 +1,4 @@
+mov r0, #15
 mov r1, #remain
 mov r2, #blank
 ldr r0, .InputNum
