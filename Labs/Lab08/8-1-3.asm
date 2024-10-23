@@ -5,15 +5,21 @@ mov r2, #blank
 mov r3, #ask_number
 
 // Procedure
+// Display totoal value
 str r0, .WriteUnsignedNum
 str r1, .WriteString
 str r2, .WriteString
+
+// Dispaly how many want to remove
 str r3, .WriteString
 str r2, .WriteString
 ldr r4, .InputNum
 str r4, .WriteUnsignedNum
-sub r0, r0, r4
 str r2, .WriteString
+
+// Substract total number from user input 
+sub r0, r0, r4
+
 str r0, .WriteUnsignedNum
 str r1, .WriteString
 str r2, .WriteString
