@@ -20,8 +20,8 @@ select:
     sub r0, r0, r2
 
     str r1, .WriteString
-    str r2, .WriteString
-    str r3, .WriteUnsignedNum
+    str r2, .WriteUnsignedNum
+    str r3, .WriteString
 
     str r5, .WriteString
     str r0, .WriteUnsignedNum
@@ -34,8 +34,8 @@ select:
 
 invalid_number:
     str r4, .WriteString
-    str r3, .WriteUnsignedNum
-    str r2, .WriteString
+    str r2, .WriteUnsignedNum
+    str r3, .WriteString
     b select
 
 finsh: halt
