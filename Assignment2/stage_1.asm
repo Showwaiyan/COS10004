@@ -1,3 +1,9 @@
+// Convention
+// Variable Labes are in camelCase
+// Function Labels are in snake_case and start with _
+// Branch Labels are in snake_case and without start with _
+// Functin arguments are passed in r0, r1, r2, r3
+
 // Main Procedure
 start:
     bl _initialize_game
@@ -51,7 +57,7 @@ _ask_matchsticks_number: // Ask the player for the number of matchsticks
     push {lr, r2, r3}
     mov r2, #10
     mov r3, #100
-    bl _is_valid_matchsticks_number
+    bl _is_matchsticks_number_valid
     pop {lr, r2, r3}
     str r0, .WriteUnsignedNum
     str r0, matchSticks
@@ -70,14 +76,15 @@ _print_matchsticks_number: // Print the number of matchsticks
     pop {lr}
     ret
 
-_is_valid_matchsticks_number: // Check if the number of matchsticks is valid
+_is_matchsticks_number_valid: // Check if the number of matchsticks is valid
+    // this will always use r2 and r3 as the range
     cmp r0, r2
-    blt _invalid_matchstick_input
+    blt invalid_matchstick_input
     cmp r0, r3
-    bgt _invalid_matchstick_input
+    bgt invalid_matchstick_input
     ret
 
-_invalid_matchstick_input: // Print an error message for invalid matchsticks input
+invalid_matchstick_input: // Print an error message for invalid matchsticks input
     mov r1, #invalidInputMessage
     str r1, .WriteString
     push {lr}
