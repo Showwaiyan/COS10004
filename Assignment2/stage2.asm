@@ -8,7 +8,8 @@
 // Main Procedure
 start:
     bl _initialize_game
-    b game_start
+    bl _game_start
+
 game_end:
     mov r0, #gameOverMessage
     str r0, .WriteString
@@ -157,15 +158,25 @@ _reduce_matchsticks: // Reduce the number of matchsticks
     sub r4, r4, r0
     ret
 
-game_start:
+_game_start:
+    push {lr}
+    bl _user_turn
+    bl _check_matchsticks
+    pop {lr}
+    ret
+
+_user_turn:
+    push {lr}
     bl _print_remainding_matchsticks
     bl _ask_number_to_remove_matchsticks
-    bl _check_matchsticks
+    pop {lr}
+    ret
+
 
 _check_matchsticks:
     cmp r4, #0
     beq game_end
-    b game_start
+    b _game_start
 
 _print_newline:
     push {r0}
