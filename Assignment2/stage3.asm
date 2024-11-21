@@ -15,6 +15,9 @@ start:
 
 game_result:
     pop {lr} // Due to it jump from _check_matchsticks, need to pop the lr to be out from _game_start
+    cmp r4, #0 // First check if the game is draw or not
+    beq game_draw
+
     cmp r5, #0
     beq player_win
 
