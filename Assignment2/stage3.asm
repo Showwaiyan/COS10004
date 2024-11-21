@@ -46,6 +46,9 @@ game_finish:
     beq game_end
     cmp r0, #78 // N
     beq game_end
+    mov r0, #invalidInputMessage
+    str r0, .WriteString
+    b game_finish
 
 game_end:
     halt
