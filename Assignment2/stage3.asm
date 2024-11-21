@@ -323,8 +323,8 @@ computerChoicePrompt: .asciz "\nComputer has removed "
 // label for Game End
 playerWin: .asciz " ,YOU WIN!\n"
 playerLose: .asciz " ,YOU LOSE!\n"
-draw: .asciz "It's a draw!\n"
+draw: .asciz "\nIt's a draw!\n"
 
 // label for Game reset 
-gameResetPrompt: .asciz "Play again (y/n)\n"
+gameResetPrompt: .asciz "\nPlay again (y/n)\n"
 playerChoice: .block 1
